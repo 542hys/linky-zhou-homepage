@@ -3,17 +3,229 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>linky zhou | JD.com</title>
+  <meta name="description" content="Personal homepage of Linky Zhou at JD.com">
+  <title>Linky Zhou · JD.com</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f7f8fc,#eef2ff);color:#172033;min-height:100vh;display:grid;place-items:center;padding:24px}.card{width:min(720px,100%);background:#fff;border:1px solid #e7eaf3;border-radius:24px;padding:56px;box-shadow:0 24px 70px rgba(32,46,89,.12)}.tag{display:inline-block;padding:7px 12px;border-radius:999px;background:#fff1f0;color:#e1251b;font-weight:700;font-size:14px}h1{font-size:clamp(42px,8vw,72px);line-height:1;margin:28px 0 16px;letter-spacing:-.04em}p{font-size:20px;line-height:1.7;color:#667085;margin:0}.company{color:#e1251b;font-weight:700}.line{height:4px;width:72px;background:#e1251b;border-radius:99px;margin-top:36px}
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --accent: #e1251b;
+      --accent-soft: #fff1f0;
+      --line: rgba(23, 32, 51, .09);
+      --card: rgba(255, 255, 255, .84);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 32px;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(225, 37, 27, .12), transparent 28rem),
+        radial-gradient(circle at 88% 82%, rgba(92, 107, 192, .14), transparent 30rem),
+        linear-gradient(135deg, #fbfbfd 0%, #f3f5fb 100%);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: .45;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: -110px;
+      right: 8%;
+      border: 1px solid rgba(225, 37, 27, .22);
+    }
+
+    body::after {
+      bottom: -150px;
+      left: 10%;
+      border: 1px solid rgba(92, 107, 192, .22);
+    }
+
+    .card {
+      position: relative;
+      width: min(880px, 100%);
+      padding: clamp(36px, 7vw, 76px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 32px;
+      background: var(--card);
+      box-shadow: 0 32px 90px rgba(38, 48, 88, .14);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .card::after {
+      content: "LZ";
+      position: absolute;
+      right: -18px;
+      bottom: -64px;
+      color: rgba(23, 32, 51, .035);
+      font-size: clamp(150px, 28vw, 260px);
+      font-weight: 800;
+      letter-spacing: -.1em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 28px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px var(--accent-soft);
+    }
+
+    h1 {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(54px, 10vw, 104px);
+      font-weight: 780;
+      letter-spacing: -.065em;
+      line-height: .92;
+    }
+
+    h1 span {
+      color: transparent;
+      background: linear-gradient(120deg, var(--accent), #ff6b5f 78%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .intro {
+      max-width: 590px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.7;
+    }
+
+    .company {
+      color: var(--ink);
+      font-weight: 720;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 42px 0 28px;
+      background: linear-gradient(90deg, var(--line), transparent);
+    }
+
+    .contact {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .contact-copy small {
+      display: block;
+      margin-bottom: 6px;
+      color: #98a2b3;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .contact-copy strong {
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border: 1px solid rgba(225, 37, 27, .18);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 15px;
+      font-weight: 720;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .email::after {
+      content: "↗";
+      font-size: 17px;
+    }
+
+    .email:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 12px 28px rgba(225, 37, 27, .22);
+    }
+
+    .email:focus-visible {
+      outline: 3px solid rgba(225, 37, 27, .25);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 18px; overflow: auto; }
+      .card { border-radius: 24px; }
+      .contact { align-items: flex-start; flex-direction: column; }
+      .email { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .email { transition: none; }
+    }
   </style>
 </head>
 <body>
   <main class="card">
-    <span class="tag">Personal Homepage</span>
-    <h1>linky zhou</h1>
-    <p>Currently at <span class="company">JD.com（京东）</span>.</p>
-    <div class="line"></div>
+    <p class="eyebrow">Personal homepage</p>
+    <h1>Linky<br><span>Zhou.</span></h1>
+    <p class="intro">
+      Currently at <span class="company">JD.com（京东）</span>, bringing care and clarity to the work that matters.
+    </p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <div class="contact">
+      <div class="contact-copy">
+        <small>Get in touch</small>
+        <strong>Always happy to connect.</strong>
+      </div>
+      <a class="email" href="mailto:zhoulinky@gmail.com" aria-label="Email Linky Zhou">
+        zhoulinky@gmail.com
+      </a>
+    </div>
   </main>
 </body>
 </html>
